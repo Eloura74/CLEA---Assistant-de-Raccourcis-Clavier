@@ -1,150 +1,146 @@
-# CLEA - Assistant de Raccourcis Clavier
+# 🚀 CLEA - ChatGPT Launcher & Easy Access
 
 ## 📋 Table des Matières
 1. [Présentation](#présentation)
-2. [Prérequis](#prérequis)
-3. [Installation](#installation)
-4. [Configuration](#configuration)
-5. [Utilisation](#utilisation)
-6. [Fonctionnalités](#fonctionnalités)
-7. [Dépannage](#dépannage)
-8. [Combinaisons de Touches Disponibles](#combinaisons-de-touches-disponibles)
-9. [Contribution](#contribution)
+2. [Fonctionnalités](#fonctionnalités)
+3. [Prérequis](#prérequis)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [Utilisation](#utilisation)
+7. [Personnalisation](#personnalisation)
+8. [Dépannage](#dépannage)
+9. [FAQ](#faq)
 
 ## 🎯 Présentation
-CLEA (Command Line Easy Assistant) est un outil puissant qui permet d'automatiser vos tâches quotidiennes grâce à des raccourcis clavier personnalisables. Développé avec AutoHotkey, il offre une interface intuitive pour la gestion de vos commandes favorites.
+CLEA est un assistant puissant qui vous permet d'interagir instantanément avec ChatGPT depuis n'importe quelle application Windows. En un seul raccourci clavier, vous pouvez :
+- Sélectionner du texte
+- L'envoyer automatiquement à ChatGPT
+- Obtenir une réponse rapide
 
-## 💻 Prérequis
-- Windows 10 ou plus récent
+## ✨ Fonctionnalités
+### Raccourci Principal (Shift+Ctrl+Alt+G)
+1. **Sélection Automatique** :
+   - Sélectionnez n'importe quel texte dans une application
+   - Le raccourci copie automatiquement la sélection
+
+2. **Interaction avec ChatGPT** :
+   - Ouverture automatique de ChatGPT
+   - Collage du texte
+   - Envoi de la requête
+
+3. **Interface de Configuration** :
+   - Lanceur graphique intuitif
+   - Personnalisation des raccourcis
+   - Gestion des paramètres
+
+## 🔧 Prérequis
+- Windows 10 ou 11
 - AutoHotkey v2.0 ou supérieur
-- Droits d'administrateur pour l'installation
+- Application ChatGPT Desktop
+- Droits administrateur (recommandé)
 
-## 🚀 Installation
-
-### Installation Automatique
-1. Téléchargez le fichier d'installation depuis le dépôt
-2. Exécutez le fichier en tant qu'administrateur
-3. Suivez les instructions à l'écran
-
-### Installation Manuelle
-1. Clonez le dépôt :
-   ```bash
-   git clone [URL_DU_REPO]
+## 📥 Installation
+1. **Fichiers Nécessaires** :
    ```
-2. Installez AutoHotkey v2.0 depuis le [site officiel](https://www.autohotkey.com/)
-3. Copiez les fichiers dans le dossier de votre choix
+   CLEA/
+   ├── gptShortCut.ahk    # Script principal
+   ├── Laucher.ahk        # Interface de configuration
+   ├── config.ini         # Configuration
+   └── Save/              # Sauvegardes
+   ```
+
+2. **Configuration Initiale** :
+   - Lancez `Laucher.ahk`
+   - Configurez le chemin vers ChatGPT
+   - Personnalisez vos préférences
 
 ## ⚙️ Configuration
+### Interface Graphique (Laucher.ahk)
+1. **Onglet Raccourci** :
+   - Modification du raccourci principal
+   - Visualisation du raccourci actuel
+   - Description des actions
 
-### Configuration du fichier config.ini
-Le fichier `config.ini` contient les paramètres principaux :
+2. **Onglet Chemins** :
+   - Chemin vers ChatGPT.exe
+   - Sélection via explorateur de fichiers
+
+3. **Onglet Options** :
+   - Notifications (activer/désactiver)
+   - Sons (activer/désactiver)
+   - Redémarrage automatique
+   - Démarrage avec Windows
+
+### Configuration Manuelle (config.ini)
 ```ini
-[Settings]
-Language=FR
-DefaultBrowser=chrome
-CustomShortcuts=true
+[General]
+Shortcut=+^!g           # Shift+Ctrl+Alt+G
+ChatGPTPath=C:\...      # Chemin ChatGPT
+EnableNotification=1    # Notifications
+EnableSound=1          # Sons
+AutoRestart=1          # Redémarrage auto
 
-[Shortcuts]
-# Exemple de raccourcis personnalisés
-Ctrl+Alt+T=Terminal
-Ctrl+Alt+N=Notepad
+[Settings]
+AutoStart=1            # Démarrage avec Windows
 ```
 
-### Personnalisation des Raccourcis
-1. Ouvrez le fichier `gptShortCut.ahk`
-2. Ajoutez ou modifiez les raccourcis selon vos besoins
-3. Sauvegardez et redémarrez l'application
-
 ## 🎮 Utilisation
+1. **Utilisation Basique** :
+   - Sélectionnez du texte
+   - Appuyez sur `Shift+Ctrl+Alt+G`
+   - Attendez la réponse de ChatGPT
 
-### Raccourcis par Défaut
-- `Win + G` : Ouvre l'interface principale
-- `Ctrl + Alt + R` : Recharge la configuration
-- `Ctrl + Alt + P` : Ouvre les paramètres
+2. **Configuration** :
+   - Lancez `Laucher.ahk`
+   - Modifiez les paramètres
+   - Appliquez les changements
 
-### Commandes Rapides
-1. Appuyez sur le raccourci configuré
-2. Saisissez votre commande
-3. Validez avec Entrée
+3. **Bonnes Pratiques** :
+   - Gardez une copie de config.ini
+   - Utilisez le lanceur pour les modifications
+   - Évitez de modifier les fichiers en cours d'exécution
 
-## 🛠️ Fonctionnalités
-- Automatisation des tâches répétitives
-- Raccourcis clavier personnalisables
-- Support multi-langues
-- Historique des commandes
-- Sauvegarde automatique des configurations
+## 🎨 Personnalisation
+### Raccourcis Clavier
+- Format : `+` (Shift), `^` (Ctrl), `!` (Alt)
+- Exemples :
+  - `+^!g` = Shift+Ctrl+Alt+G
+  - `^!c` = Ctrl+Alt+C
 
-## 🔧 Dépannage
+### Options Avancées
+- Modification des délais
+- Personnalisation des notifications
+- Configuration du comportement
 
+## 🔍 Dépannage
 ### Problèmes Courants
-1. **L'application ne démarre pas**
-   - Vérifiez les droits d'administrateur
-   - Assurez-vous qu'AutoHotkey est bien installé
+1. **ChatGPT ne s'ouvre pas** :
+   - Vérifiez le chemin dans config.ini
+   - Assurez-vous que ChatGPT est installé
+   - Lancez en mode administrateur
 
-2. **Les raccourcis ne fonctionnent pas**
-   - Vérifiez les conflits avec d'autres applications
-   - Redémarrez l'application
+2. **Raccourci ne fonctionne pas** :
+   - Vérifiez les conflits de raccourcis
+   - Relancez l'application
+   - Vérifiez les droits d'accès
 
-## 🎹 Combinaisons de Touches Disponibles
-Voici une liste de 30 combinaisons de touches non utilisées par Windows 10 et la plupart des applications, idéales pour créer vos commandes CLEA :
+3. **Erreurs de Configuration** :
+   - Utilisez le lanceur pour reconfigurer
+   - Restaurez une sauvegarde
+   - Réinitialisez les paramètres
 
-### Combinaisons avec F13-F24 (Très sûres car rarement utilisées)
-1. `F13` : Disponible pour commande simple
-2. `Shift + F13` : Disponible
-3. `Ctrl + F13` : Disponible
-4. `Alt + F13` : Disponible
-5. `F14` à `F24` : Entièrement disponibles
+## ❓ FAQ
+**Q: Le raccourci fonctionne-t-il partout ?**
+R: Oui, sauf dans les applications en mode administrateur.
 
-### Combinaisons avec Touches Numériques
-6. `Alt + NumPad0` : Disponible
-7. `Alt + NumPad1` à `NumPad9` : Disponibles
-8. `Ctrl + Alt + NumPad0` à `NumPad9` : Disponibles
-9. `Shift + Alt + NumPad0` à `NumPad9` : Disponibles
-10. `Ctrl + Shift + NumPad0` à `NumPad9` : Disponibles
+**Q: Comment changer le raccourci ?**
+R: Utilisez le lanceur, onglet "Raccourci".
 
-### Combinaisons avec CapsLock
-11. `CapsLock + A` à `Z` : Disponibles (après remappage de CapsLock)
-12. `CapsLock + 1` à `9` : Disponibles
-13. `CapsLock + F1` à `F12` : Disponibles
-14. `CapsLock + Tab` : Disponible
-15. `CapsLock + Espace` : Disponible
+**Q: Puis-je avoir plusieurs raccourcis ?**
+R: Actuellement, seul le raccourci principal est configurable.
 
-### Combinaisons avec AltGr (Alt Droit)
-16. `AltGr + A` à `Z` : Plusieurs combinaisons disponibles
-17. `AltGr + 1` à `9` : Disponibles
-18. `AltGr + F1` à `F12` : Disponibles
-19. `AltGr + Tab` : Disponible
-20. `AltGr + Espace` : Disponible
-
-### Combinaisons Multi-touches
-21. `Ctrl + Alt + ;` : Disponible
-22. `Ctrl + Alt + ,` : Disponible
-23. `Ctrl + Alt + .` : Disponible
-24. `Ctrl + Alt + /` : Disponible
-25. `Ctrl + Alt + '` : Disponible
-
-### Combinaisons avec Touches Spéciales
-26. `Shift + Alt + ~` : Disponible
-27. `Ctrl + Alt + Insert` : Disponible
-28. `Ctrl + Alt + Home` : Disponible
-29. `Ctrl + Alt + PageUp` : Disponible
-30. `Ctrl + Alt + PageDown` : Disponible
-
-> **Notes importantes :**
-> - Ces combinaisons ont été choisies car elles sont rarement utilisées par Windows ou d'autres applications
-> - Testez toujours la combinaison choisie avant de l'assigner pour vérifier qu'elle n'est pas déjà utilisée
-> - Les touches F13-F24 nécessitent un clavier qui les supporte ou une configuration spéciale
-> - Le remappage de CapsLock nécessite une configuration supplémentaire dans AutoHotkey
-> - Évitez les combinaisons `Win + Touche` car elles sont souvent réservées par Windows
-
-## 🤝 Contribution
-Les contributions sont les bienvenues ! Pour contribuer :
-1. Forkez le projet
-2. Créez une branche pour votre fonctionnalité
-3. Soumettez une pull request
-
-## 📄 Licence
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+**Q: Comment sauvegarder ma configuration ?**
+R: Copiez config.ini dans le dossier Save/.
 
 ---
-Développé avec ❤️ par [Votre Équipe]
+Développé avec ❤️ par l'équipe CLEA
